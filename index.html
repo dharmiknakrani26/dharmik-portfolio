@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dharmik Nakrani | Data Analyst Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111827, #2563eb);
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      background: white;
+      color: #2563eb;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin: 5px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #dbeafe;
+      transform: translateY(-2px);
+    }
+
+    nav {
+      background: #111827;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #93c5fd;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #1d4ed8;
+      margin-bottom: 18px;
+      font-size: 28px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .skill-card {
+      background: #eff6ff;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      color: #1e40af;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 22px;
+      background: #ffffff;
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .project-card h3 {
+      color: #111827;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin: 3px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 12px;
+      text-decoration: none;
+      color: white;
+      background: #2563eb;
+      padding: 9px 14px;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    .contact a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111827;
+      color: white;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 7px;
+      }
+
+      section {
+        margin: 20px 12px;
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Dharmik Nakrani</h1>
+    <p>Aspiring Data Analyst | SQL | Python | Tableau | Power BI | Data Visualization</p>
+    <a href="#projects" class="btn">View Projects</a>
+    <a href="resume.pdf" class="btn">Download Resume</a>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am an aspiring Data Analyst with a Computer Science background and hands-on experience in SQL, Python, Tableau, Power BI, and data visualization. I enjoy turning raw data into meaningful insights through data cleaning, analysis, dashboards, and business recommendations.
+    </p>
+    <p>
+      My portfolio includes projects in customer churn analysis, supply chain delay analysis, Netflix content analytics, and SQL database analytics.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">SQL Server</div>
+      <div class="skill-card">SQL Queries</div>
+      <div class="skill-card">Python</div>
+      <div class="skill-card">Pandas</div>
+      <div class="skill-card">Tableau</div>
+      <div class="skill-card">Power BI</div>
+      <div class="skill-card">Excel</div>
+      <div class="skill-card">Data Cleaning</div>
+      <div class="skill-card">Data Visualization</div>
+      <div class="skill-card">Machine Learning Basics</div>
+      <div class="skill-card">Business Analysis</div>
+      <div class="skill-card">Database Design</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>Customer Churn Analytics, Revenue Risk & Retention Optimization</h3>
+        <p>
+          Analyzed telecom customer churn to identify high-risk customers, estimate annual revenue at risk, and recommend retention strategies. Built dashboards and used machine learning for churn probability scoring.
+        </p>
+        <div>
+          <span class="tag">Python</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Machine Learning</span>
+        </div>
+        <a href="https://github.com/dharmiknakrani26/customer-churn-prediction-retention-analysis" class="project-link" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Supply Chain Delivery Delay Analysis</h3>
+        <p>
+          Analyzed supply chain data to identify delivery delays, shipping risk, operational trends, and profit impact. Created business insights to improve delivery performance and supply chain efficiency.
+        </p>
+        <div>
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Tableau</span>
+        </div>
+        <a href="https://github.com/dharmiknakrani26/supply-chain-delivery-delay-analysis" class="project-link" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Student Course Registration SQL Analytics Project</h3>
+        <p>
+          Designed a relational SQL Server database for university course registration. Created tables, primary keys, foreign keys, SQL queries, views, and ERD documentation to analyze course enrollment and department demand.
+        </p>
+        <div>
+          <span class="tag">SQL Server</span>
+          <span class="tag">SSMS</span>
+          <span class="tag">Database Design</span>
+          <span class="tag">Business Reporting</span>
+        </div>
+        <a href="https://github.com/dharmiknakrani26/student-course-registration-sql-analytics" class="project-link" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Netflix Data Analytics Project</h3>
+        <p>
+          Analyzed Netflix content data to find trends by content type, release year, country, and category. Cleaned data, performed exploratory analysis, wrote SQL queries, and created visual insights.
+        </p>
+        <div>
+          <span class="tag">Python</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Tableau</span>
+        </div>
+        <a href="https://github.com/dharmiknakrani26/Netflix-Data-Analytics-Project" class="project-link" target="_blank">View Project</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:dnakrani7874378713@gmail.com">dnakrani7874378713@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/dharmik-nakrani-a75618234/" target="_blank">linkedin.com/in/dharmik-nakrani-a75618234</a></p>
+    <p>GitHub: <a href="https://github.com/dharmiknakrani26" target="_blank">github.com/dharmiknakrani26</a></p>
+  </section>
+
+  <footer>
+    <p>© 2026 Dharmik Nakrani | Data Analytics Portfolio</p>
+  </footer>
+
+</body>
+</html>
