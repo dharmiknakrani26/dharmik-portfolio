@@ -3,117 +3,695 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dharmik Nakrani | Data Analyst Portfolio</title>
+  <title>Dharmik Nakrani | Data Analytics Portfolio</title>
+  <meta name="description" content="Dharmik Nakrani Data Analytics Portfolio - SQL, Python, Tableau, Power BI, Data Engineering, Machine Learning" />
+
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-    body{background:#f4f7fb;color:#1f2937;line-height:1.6}
-    header{background:linear-gradient(135deg,#111827,#2563eb);color:white;padding:70px 20px;text-align:center}
-    header h1{font-size:42px;margin-bottom:10px}
-    header p{font-size:18px;margin-bottom:25px}
-    .btn{display:inline-block;padding:12px 22px;background:white;color:#2563eb;text-decoration:none;border-radius:8px;font-weight:bold;margin:5px;transition:.3s}
-    .btn:hover{background:#dbeafe;transform:translateY(-2px)}
-    nav{background:#111827;padding:15px;text-align:center;position:sticky;top:0;z-index:100}
-    nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
-    nav a:hover{color:#93c5fd}
-    section{max-width:1100px;margin:40px auto;padding:30px;background:white;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
-    h2{color:#1d4ed8;margin-bottom:18px;font-size:28px}
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
-    .skill-card{background:#eff6ff;padding:15px;border-radius:10px;text-align:center;font-weight:bold;color:#1e40af}
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-    .project-card{border:1px solid #e5e7eb;border-radius:14px;padding:22px;background:#fff;transition:.3s}
-    .project-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.12)}
-    .project-card h3{color:#111827;margin-bottom:10px}
-    .project-card p{margin-bottom:10px}
-    .tag{display:inline-block;background:#dbeafe;color:#1d4ed8;padding:5px 9px;border-radius:20px;font-size:13px;margin:3px}
-    .project-link{display:inline-block;margin-top:12px;text-decoration:none;color:white;background:#2563eb;padding:9px 14px;border-radius:7px;font-weight:bold}
-    .contact a{color:#2563eb;text-decoration:none;font-weight:bold}
-    footer{text-align:center;padding:25px;background:#111827;color:white;margin-top:40px}
-    @media(max-width:600px){header h1{font-size:32px}nav a{display:inline-block;margin:7px}section{margin:20px 12px;padding:22px}}
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.14);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --white: #ffffff;
+      --blue: #38bdf8;
+      --blue-dark: #2563eb;
+      --green: #22c55e;
+      --purple: #a78bfa;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(167, 139, 250, 0.16), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(15, 23, 42, 0.82);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      font-size: 18px;
+      color: var(--white);
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(56, 189, 248, 0.08);
+      color: #bae6fd;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--blue-dark), var(--blue));
+      color: white;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .quick-links a {
+      text-decoration: none;
+      color: #cbd5e1;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.5);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      color: var(--white);
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .metric:last-child {
+      border-bottom: none;
+    }
+
+    .metric strong {
+      color: var(--white);
+      font-size: 22px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    .section-title {
+      margin-bottom: 24px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      color: var(--white);
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .highlight-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .highlight-list li {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      color: #dbeafe;
+      font-weight: 650;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 14px;
+    }
+
+    .skill {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+      color: #dbeafe;
+      font-weight: 800;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.65);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(56,189,248,0.25), transparent 70%);
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(56, 189, 248, 0.55);
+    }
+
+    .project-type {
+      display: inline-block;
+      color: #bae6fd;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+      color: var(--white);
+      font-size: 22px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.18);
+      border: 1px solid rgba(59, 130, 246, 0.28);
+      color: #dbeafe;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .project-link {
+      display: inline-flex;
+      text-decoration: none;
+      color: white;
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--blue-dark), var(--blue));
+      padding: 10px 14px;
+      border-radius: 12px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .contact-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 6px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .contact-item a {
+      color: #dbeafe;
+      text-decoration: none;
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 36px;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+    }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Dharmik Nakrani</h1>
-    <p>Data Analyst | SQL | Python | Tableau | Power BI | Data Engineering | Machine Learning</p>
-    <a href="#projects" class="btn">View Projects</a>
-    <a href="resume.pdf" class="btn">Download Resume</a>
-  </header>
 
+<body>
   <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <div class="container nav-inner">
+      <div class="logo">Dharmik <span>Nakrani</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </nav>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am a Computer Science graduate focused on full-time Data Analyst, SQL Analyst, BI Analyst, and entry-level data roles. I have hands-on experience with SQL, Python, Pandas, Tableau, Power BI, machine learning, and data visualization.</p>
-    <p>My portfolio includes projects in customer churn analytics, supply chain delay analysis, Netflix content analytics, SQL database analytics, and an end-to-end telecom retention pipeline combining data engineering, machine learning, and SQL analytics.</p>
-  </section>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">Open to Full-Time Data Analyst Roles</div>
+        <h1>Turning data into <span>business insights</span>.</h1>
+        <p>
+          Computer Science graduate with hands-on projects in SQL, Python, Tableau, Power BI,
+          data engineering pipelines, machine learning, dashboards, and business analytics.
+        </p>
 
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">SQL Server</div><div class="skill-card">SQL Queries</div><div class="skill-card">Python</div>
-      <div class="skill-card">Pandas</div><div class="skill-card">Tableau</div><div class="skill-card">Power BI</div>
-      <div class="skill-card">Excel</div><div class="skill-card">Data Cleaning</div><div class="skill-card">Data Engineering</div>
-      <div class="skill-card">ETL Pipeline</div><div class="skill-card">Machine Learning</div><div class="skill-card">Business Analysis</div>
-      <div class="skill-card">Database Design</div><div class="skill-card">Data Visualization</div><div class="skill-card">GitHub</div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-outline" href="resume.pdf">Download Resume</a>
+          <a class="btn btn-outline" href="https://github.com/dharmiknakrani26" target="_blank">GitHub</a>
+        </div>
+
+        <div class="quick-links">
+          <span>Chicago, IL</span>
+          <span>•</span>
+          <a href="mailto:dharmiknakrani0026@gmail.com">dharmiknakrani0026@gmail.com</a>
+          <span>•</span>
+          <a href="https://www.linkedin.com/in/dharmik-nakrani-a75618234/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Portfolio Snapshot</h3>
+        <div class="metric">
+          <div>
+            <strong>5</strong><br />
+            <span>Portfolio Projects</span>
+          </div>
+          <div>
+            <strong>SQL + Python</strong><br />
+            <span>Core Analytics Stack</span>
+          </div>
+        </div>
+        <div class="metric">
+          <div>
+            <strong>68%</strong><br />
+            <span>ML Model Accuracy</span>
+          </div>
+          <div>
+            <strong>1,000</strong><br />
+            <span>Pipeline Records</span>
+          </div>
+        </div>
+        <div class="metric">
+          <div>
+            <strong>Tableau</strong><br />
+            <span>Dashboarding</span>
+          </div>
+          <div>
+            <strong>SQL Server</strong><br />
+            <span>Database + Reporting</span>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </header>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Me</h2>
+          <p>A practical data professional focused on solving business problems with data.</p>
+        </div>
 
-      <div class="project-card">
-        <h3>Telecom Customer Retention Intelligence Pipeline</h3>
-        <p>Built an end-to-end Data Engineering and Data Science pipeline using Python, Pandas, SQL Server, and Scikit-learn. Cleaned raw telecom data, created business features, trained a Random Forest model with 68.0% accuracy, generated churn probability scores, loaded prediction data into SQL Server, and created SQL business insights for retention planning.</p>
-        <div><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL Server</span><span class="tag">ETL Pipeline</span><span class="tag">Machine Learning</span></div>
-        <a href="https://github.com/dharmiknakrani26/telecom-retention-intelligence-pipeline" class="project-link" target="_blank">View Project</a>
+        <div class="about-grid">
+          <div class="panel about-text">
+            <p>
+              I am a Computer Science graduate focused on full-time Data Analyst, SQL Analyst,
+              BI Analyst, Reporting Analyst, and entry-level data roles.
+            </p>
+            <p>
+              I work with SQL, Python, Pandas, Tableau, Power BI, Excel, and SQL Server to clean
+              data, analyze trends, create dashboards, and communicate insights clearly.
+            </p>
+            <p>
+              My projects cover customer churn, telecom retention pipelines, supply chain delays,
+              Netflix content analytics, SQL database reporting, and revenue-risk analysis.
+            </p>
+          </div>
+
+          <div class="panel">
+            <ul class="highlight-list">
+              <li>Data Cleaning and Transformation</li>
+              <li>SQL Business Reporting</li>
+              <li>Dashboard and KPI Storytelling</li>
+              <li>Machine Learning Basics</li>
+              <li>Data Engineering Pipeline Workflow</li>
+            </ul>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="project-card">
-        <h3>Customer Churn Analytics, Revenue Risk & Retention Optimization</h3>
-        <p>Analyzed telecom customer churn to identify high-risk customers, estimate annual revenue at risk, and recommend retention strategies. Built dashboards and used machine learning for churn probability scoring.</p>
-        <div><span class="tag">Python</span><span class="tag">SQL Server</span><span class="tag">Tableau</span><span class="tag">Machine Learning</span></div>
-        <a href="https://github.com/dharmiknakrani26/customer-churn-prediction-retention-analysis" class="project-link" target="_blank">View Project</a>
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>Technical Skills</h2>
+          <p>Tools and concepts used across my analytics, SQL, BI, and data engineering projects.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill">SQL Server</div>
+          <div class="skill">SQL Queries</div>
+          <div class="skill">Python</div>
+          <div class="skill">Pandas</div>
+          <div class="skill">NumPy</div>
+          <div class="skill">Scikit-learn</div>
+          <div class="skill">Tableau</div>
+          <div class="skill">Power BI</div>
+          <div class="skill">Excel</div>
+          <div class="skill">Data Cleaning</div>
+          <div class="skill">ETL Pipeline</div>
+          <div class="skill">Machine Learning</div>
+          <div class="skill">Database Design</div>
+          <div class="skill">Business Analysis</div>
+          <div class="skill">GitHub</div>
+        </div>
       </div>
+    </section>
 
-      <div class="project-card">
-        <h3>Supply Chain Delivery Delay Analysis</h3>
-        <p>Analyzed supply chain data to identify delivery delays, shipping risk, operational trends, and profit impact. Created business insights to improve delivery performance and supply chain efficiency.</p>
-        <div><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL</span><span class="tag">Tableau</span></div>
-        <a href="https://github.com/dharmiknakrani26/supply-chain-delivery-delay-analysis" class="project-link" target="_blank">View Project</a>
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Projects</h2>
+          <p>End-to-end projects showing SQL, Python, dashboards, machine learning, and business recommendations.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <span class="project-type">Data Engineering + Data Science</span>
+            <h3>Telecom Customer Retention Intelligence Pipeline</h3>
+            <p>
+              Built an end-to-end pipeline using Python, Pandas, SQL Server, and Scikit-learn.
+              Cleaned raw data, created business features, trained a Random Forest model with 68.0%
+              accuracy, generated churn probability scores, loaded data into SQL Server, and created
+              SQL insights for retention planning.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL Server</span>
+              <span class="tag">ETL</span><span class="tag">Machine Learning</span>
+            </div>
+            <a class="project-link" href="https://github.com/dharmiknakrani26/telecom-retention-intelligence-pipeline" target="_blank">View Project</a>
+          </article>
+
+          <article class="project-card">
+            <span class="project-type">Analytics + ML</span>
+            <h3>Customer Churn Analytics, Revenue Risk & Retention Optimization</h3>
+            <p>
+              Analyzed telecom customer churn, identified high-risk customers, estimated annual revenue
+              at risk, created Tableau dashboards, and developed retention recommendations.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">SQL Server</span><span class="tag">Tableau</span>
+              <span class="tag">Machine Learning</span>
+            </div>
+            <a class="project-link" href="https://github.com/dharmiknakrani26/customer-churn-prediction-retention-analysis" target="_blank">View Project</a>
+          </article>
+
+          <article class="project-card">
+            <span class="project-type">Operations Analytics</span>
+            <h3>Supply Chain Delivery Delay Analysis</h3>
+            <p>
+              Analyzed supply chain data to identify delivery delays, shipping risk, operational trends,
+              and profit impact with recommendations for improving delivery performance.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL</span>
+              <span class="tag">Tableau</span>
+            </div>
+            <a class="project-link" href="https://github.com/dharmiknakrani26/supply-chain-delivery-delay-analysis" target="_blank">View Project</a>
+          </article>
+
+          <article class="project-card">
+            <span class="project-type">SQL Database Project</span>
+            <h3>Student Course Registration SQL Analytics Project</h3>
+            <p>
+              Designed a relational SQL Server database for university registration. Created tables,
+              keys, relationships, SQL queries, views, ERD documentation, and business reporting outputs.
+            </p>
+            <div class="tags">
+              <span class="tag">SQL Server</span><span class="tag">SSMS</span><span class="tag">Database Design</span>
+              <span class="tag">Views</span>
+            </div>
+            <a class="project-link" href="https://github.com/dharmiknakrani26/student-course-registration-sql-analytics" target="_blank">View Project</a>
+          </article>
+
+          <article class="project-card">
+            <span class="project-type">Content Analytics</span>
+            <h3>Netflix Data Analytics Project</h3>
+            <p>
+              Cleaned and analyzed Netflix content data to find trends by content type, release year,
+              country, category, and platform growth using Python, SQL Server, and Tableau.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">SQL Server</span><span class="tag">Pandas</span>
+              <span class="tag">Tableau</span>
+            </div>
+            <a class="project-link" href="https://github.com/dharmiknakrani26/Netflix-Data-Analytics-Project" target="_blank">View Project</a>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="project-card">
-        <h3>Student Course Registration SQL Analytics Project</h3>
-        <p>Designed a relational SQL Server database for university course registration. Created tables, primary keys, foreign keys, SQL queries, views, and ERD documentation to analyze course enrollment and department demand.</p>
-        <div><span class="tag">SQL Server</span><span class="tag">SSMS</span><span class="tag">Database Design</span><span class="tag">Business Reporting</span></div>
-        <a href="https://github.com/dharmiknakrani26/student-course-registration-sql-analytics" class="project-link" target="_blank">View Project</a>
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Open to full-time Data Analyst, SQL Analyst, BI Analyst, Reporting Analyst, and related data roles.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span>Email</span>
+            <a href="mailto:dharmiknakrani0026@gmail.com">dharmiknakrani0026@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span>LinkedIn</span>
+            <a href="https://www.linkedin.com/in/dharmik-nakrani-a75618234/" target="_blank">linkedin.com/in/dharmik-nakrani-a75618234</a>
+          </div>
+          <div class="contact-item">
+            <span>GitHub</span>
+            <a href="https://github.com/dharmiknakrani26" target="_blank">github.com/dharmiknakrani26</a>
+          </div>
+        </div>
       </div>
-
-      <div class="project-card">
-        <h3>Netflix Data Analytics Project</h3>
-        <p>Analyzed Netflix content data to find trends by content type, release year, country, and category. Cleaned data, performed exploratory analysis, wrote SQL queries, and created visual insights.</p>
-        <div><span class="tag">Python</span><span class="tag">SQL Server</span><span class="tag">Pandas</span><span class="tag">Tableau</span></div>
-        <a href="https://github.com/dharmiknakrani26/Netflix-Data-Analytics-Project" class="project-link" target="_blank">View Project</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:dharmiknakrani0026@gmail.com">dharmiknakrani0026@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/dharmik-nakrani-a75618234/" target="_blank">linkedin.com/in/dharmik-nakrani-a75618234</a></p>
-    <p>GitHub: <a href="https://github.com/dharmiknakrani26" target="_blank">github.com/dharmiknakrani26</a></p>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2026 Dharmik Nakrani | Data Analytics Portfolio</p>
+    <div class="container">© 2026 Dharmik Nakrani | Data Analytics Portfolio</div>
   </footer>
 </body>
 </html>
