@@ -4,741 +4,1259 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dharmik Nakrani | Data & AI Analytics Portfolio</title>
-  <meta name="description" content="Dharmik Nakrani portfolio: Data & AI analytics projects using SQL, Python, Tableau, Streamlit, Gemini AI, KPI reporting, data validation, and business insights." />
+  <meta name="description" content="Dharmik Nakrani portfolio for Data Analyst, Business Analyst, AI Business Analyst, and Generative AI Analyst roles using SQL, Python, Tableau, Streamlit, Gemini AI, and KPI reporting." />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f7f8fb;
+      --bg: #f4f7fb;
       --surface: #ffffff;
-      --surface-2: #eef2f7;
-      --text: #111827;
-      --muted: #5b6575;
+      --surface-soft: #f8fafc;
+      --ink: #111827;
+      --muted: #5b6678;
       --line: rgba(17, 24, 39, 0.12);
-      --accent: #2563eb;
-      --accent-2: #7c3aed;
-      --accent-soft: rgba(37, 99, 235, 0.10);
-      --shadow: 0 22px 65px rgba(17, 24, 39, 0.10);
-      --card-shadow: 0 14px 40px rgba(17, 24, 39, 0.08);
+      --accent: #0ea5e9;
+      --accent-2: #2563eb;
+      --shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
+      --hero-overlay: rgba(3, 7, 18, 0.72);
     }
 
     html[data-theme="dark"] {
       --bg: #080b12;
       --surface: #0f1624;
-      --surface-2: #131c2d;
-      --text: #f8fafc;
-      --muted: #a3adbd;
+      --surface-soft: #111827;
+      --ink: #f8fafc;
+      --muted: #a6b0c0;
       --line: rgba(255, 255, 255, 0.12);
       --accent: #38bdf8;
-      --accent-2: #a78bfa;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
-      --card-shadow: 0 16px 42px rgba(0, 0, 0, 0.24);
+      --accent-2: #60a5fa;
+      --shadow: 0 18px 55px rgba(0, 0, 0, 0.30);
+      --hero-overlay: rgba(3, 7, 18, 0.76);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 15% 0%, rgba(56, 189, 248, 0.18), transparent 28%),
-        radial-gradient(circle at 90% 10%, rgba(167, 139, 250, 0.16), transparent 30%),
-        linear-gradient(180deg, var(--bg), var(--bg));
+      background: var(--bg);
+      color: var(--ink);
       line-height: 1.65;
       overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
+    a {
+      color: inherit;
+    }
+
+    .page-container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .site-nav {
       position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.22;
-      background-image:
-        linear-gradient(var(--line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--line) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: linear-gradient(to bottom, black, transparent 78%);
-      z-index: -1;
-    }
-
-    a { color: inherit; }
-
-    .container-narrow { width: min(1120px, 92%); margin: 0 auto; }
-
-    .navbar-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--line);
+      inset: 0 0 auto 0;
+      z-index: 999;
+      background: rgba(5, 10, 20, 0.88);
       backdrop-filter: blur(18px);
-      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .navbar-custom {
-      min-height: 76px;
-    }
-
-    .brand-mark {
-      display: inline-flex;
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
       align-items: center;
-      gap: 10px;
-      text-decoration: none;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: #fff;
+      font-size: 1.28rem;
       font-weight: 900;
-      letter-spacing: -0.03em;
-      color: var(--text);
-    }
-
-    .brand-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 70%, transparent);
-    }
-
-    .nav-link-custom {
-      color: var(--muted);
       text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .03em;
       transition: color .2s ease;
     }
 
-    .nav-link-custom:hover { color: var(--text); }
+    .nav-links a:hover {
+      color: #fff;
+    }
 
     .theme-toggle {
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--text);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-weight: 800;
-      box-shadow: var(--card-shadow);
+      width: 42px;
+      height: 42px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-weight: 900;
     }
 
     .hero {
-      min-height: calc(100vh - 76px);
+      min-height: 100vh;
       display: grid;
       align-items: center;
-      padding: 72px 0 54px;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 110px 0 72px;
+      color: #fff;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 8px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      background: color-mix(in srgb, var(--surface) 82%, transparent);
-      font-size: .86rem;
-      font-weight: 800;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, var(--hero-overlay) 0%, rgba(3,7,18,0.70) 42%, rgba(3,7,18,0.48) 100%),
+        url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.04);
+      z-index: -2;
+      animation: heroZoom 18s ease-in-out infinite alternate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 25%, rgba(56,189,248,.22), transparent 23%),
+        radial-gradient(circle at 85% 75%, rgba(37,99,235,.18), transparent 24%);
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 710px;
+      animation: fadeUp .8s ease both;
+    }
+
+    .typing-line {
+      min-height: 28px;
+      color: #38bdf8;
+      font-weight: 900;
+      letter-spacing: .25em;
+      font-size: .92rem;
+      text-transform: uppercase;
       margin-bottom: 18px;
     }
 
-    .eyebrow span {
-      width: 8px;
-      height: 8px;
-      border-radius: 99px;
-      background: #22c55e;
-      box-shadow: 0 0 0 5px rgba(34, 197, 94, .12);
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 18px;
+      background: #fff;
+      margin-left: 6px;
+      animation: blink 1s step-end infinite;
+      transform: translateY(3px);
     }
 
-    .hero-title {
-      font-size: clamp(3.2rem, 10vw, 8.6rem);
-      line-height: .9;
-      letter-spacing: -0.09em;
-      font-weight: 950;
-      margin: 0 0 20px;
+    .hero h1 {
+      font-size: clamp(2.55rem, 6.5vw, 4.9rem);
+      line-height: 1.02;
+      letter-spacing: -0.065em;
+      font-weight: 900;
+      margin: 0 0 18px;
     }
 
-    .gradient-text {
-      background: linear-gradient(105deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .hero h1 span {
+      color: #38bdf8;
     }
 
-    .hero-copy {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
+    .hero p {
+      max-width: 650px;
+      color: rgba(255,255,255,0.78);
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
       margin-bottom: 28px;
     }
 
-    .role-pills {
+    .hero-socials {
+      display: flex;
+      gap: 16px;
+      margin: 20px 0 34px;
+    }
+
+    .social-link {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.08);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.18rem;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: #03111f;
+    }
+
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin: 26px 0 30px;
+      gap: 16px;
     }
 
-    .role-pill {
-      color: var(--text);
-      background: var(--accent-soft);
-      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: .85rem;
-      font-weight: 800;
-    }
-
-    .btn-modern {
+    .btn-portfolio {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 12px 18px;
+      min-width: 178px;
+      border-radius: 10px;
+      padding: 13px 18px;
       font-weight: 900;
       text-decoration: none;
-      border: 1px solid var(--line);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-      white-space: nowrap;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
     }
 
-    .btn-modern:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--card-shadow);
-      border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    .btn-primary-portfolio {
+      background: var(--accent);
+      color: #03111f;
+      border: 1px solid var(--accent);
+      box-shadow: 0 15px 35px rgba(14,165,233,.25);
     }
 
-    .btn-primary-modern {
+    .btn-outline-portfolio {
       color: #fff;
-      border-color: transparent;
-      background: linear-gradient(135deg, #2563eb, #38bdf8 55%, #a78bfa);
-      box-shadow: 0 18px 40px rgba(37, 99, 235, .28);
+      border: 1px solid rgba(255,255,255,.7);
+      background: rgba(255,255,255,.05);
     }
 
-    .btn-secondary-modern { background: var(--surface); color: var(--text); }
-
-    .snapshot-grid {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(120px, 1fr));
-      gap: 12px;
-      margin-top: 46px;
+    .btn-portfolio:hover {
+      transform: translateY(-3px);
     }
 
-    .snapshot-card {
-      min-height: 112px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: color-mix(in srgb, var(--surface) 88%, transparent);
-      box-shadow: var(--card-shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .snapshot-card::after {
-      content: "";
+    .scroll-mouse {
       position: absolute;
-      inset: auto -30px -46px auto;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 25%, transparent), transparent 70%);
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%);
+      width: 25px;
+      height: 42px;
+      border: 2px solid rgba(255,255,255,.75);
+      border-radius: 999px;
+      display: flex;
+      justify-content: center;
+      padding-top: 8px;
     }
 
-    .snapshot-card strong {
-      display: block;
-      font-size: clamp(1.2rem, 2vw, 1.72rem);
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-      margin-bottom: 10px;
+    .scroll-mouse::before {
+      content: "";
+      width: 4px;
+      height: 10px;
+      background: #fff;
+      border-radius: 999px;
+      animation: scrollDot 1.7s infinite ease-in-out;
     }
 
-    .snapshot-card span { color: var(--muted); font-weight: 750; font-size: .83rem; }
+    .section {
+      padding: 86px 0;
+      background: var(--bg);
+    }
 
-    section { padding: 88px 0; }
+    .section.alt {
+      background: var(--surface-soft);
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 42px;
+    }
 
     .section-kicker {
       color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: .16em;
       font-size: .78rem;
-      font-weight: 950;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 900;
       margin-bottom: 10px;
     }
 
-    .section-title {
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 950;
-      letter-spacing: -0.07em;
-      line-height: .95;
-      margin-bottom: 16px;
+    .section-heading h2 {
+      font-size: clamp(1.85rem, 4vw, 2.65rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
     }
 
-    .section-lead { color: var(--muted); max-width: 760px; font-size: 1.05rem; }
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+    }
 
-    .about-shell {
+    .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1.12fr;
+      grid-template-columns: 1fr .9fr;
       gap: 28px;
       align-items: stretch;
-      margin-top: 32px;
     }
 
-    .about-card {
-      border: 1px solid var(--line);
+    .panel {
       background: var(--surface);
-      border-radius: 32px;
-      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
       box-shadow: var(--shadow);
     }
 
-    .about-card h3 {
-      font-size: clamp(1.7rem, 3vw, 2.65rem);
-      line-height: 1;
-      letter-spacing: -0.06em;
-      margin-bottom: 18px;
-      font-weight: 950;
+    .about-text h3 {
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
     }
 
-    .about-card p { color: var(--muted); font-size: 1.03rem; margin: 0; }
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
 
-    .proof-grid {
+    .metric-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
 
-    .proof-card {
+    .metric-card {
+      background: color-mix(in srgb, var(--surface) 86%, var(--accent) 8%);
       border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--surface) 88%, var(--accent-soft));
-      border-radius: 24px;
-      padding: 22px;
-      min-height: 130px;
+      border-radius: 18px;
+      padding: 18px;
     }
 
-    .proof-card strong { display: block; font-size: 1.5rem; letter-spacing: -0.04em; margin-bottom: 8px; }
-    .proof-card span { color: var(--muted); font-weight: 700; font-size: .92rem; }
+    .metric-card strong {
+      display: block;
+      font-size: 1.35rem;
+      letter-spacing: -0.05em;
+      margin-bottom: 4px;
+    }
 
-    .skills-shell {
+    .metric-card span {
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    .service-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      min-height: 210px;
+      transition: transform .22s ease, border-color .22s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(14,165,233,.12);
+      color: var(--accent);
+      font-size: 1.35rem;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      font-size: 1.04rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: .92rem;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .22s ease, border-color .22s ease;
+      height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
+    }
+
+    .project-visual {
+      min-height: 145px;
+      background:
+        linear-gradient(135deg, rgba(14,165,233,.22), rgba(37,99,235,.16)),
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.18), transparent 24%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-visual::after {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 18px;
+      background:
+        linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .visual-content {
+      position: relative;
+      z-index: 2;
+      min-height: 145px;
+      padding: 22px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .visual-stat {
+      color: #03111f;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.42);
+      border-radius: 16px;
+      padding: 12px 14px;
+      min-width: 126px;
+      box-shadow: 0 12px 30px rgba(15,23,42,.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .visual-stat strong {
+      display: block;
+      font-size: 1.18rem;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .visual-stat span {
+      color: #475569;
+      font-size: .72rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .mini-bars {
+      display: flex;
+      align-items: end;
+      gap: 7px;
+      height: 70px;
+      min-width: 118px;
+    }
+
+    .mini-bars i {
+      display: block;
+      width: 14px;
+      border-radius: 999px 999px 6px 6px;
+      background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(14,165,233,.7));
+      box-shadow: 0 8px 18px rgba(3,17,31,.18);
+      animation: barFloat 3.2s ease-in-out infinite;
+    }
+
+    .mini-bars i:nth-child(1) { height: 34px; animation-delay: .1s; }
+    .mini-bars i:nth-child(2) { height: 52px; animation-delay: .2s; }
+    .mini-bars i:nth-child(3) { height: 42px; animation-delay: .3s; }
+    .mini-bars i:nth-child(4) { height: 62px; animation-delay: .4s; }
+    .mini-bars i:nth-child(5) { height: 48px; animation-delay: .5s; }
+
+    .ai-chip {
+      position: relative;
+      z-index: 2;
+      align-self: flex-start;
+      color: #03111f;
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(255,255,255,.44);
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 30px rgba(15,23,42,.12);
+    }
+
+    @keyframes barFloat {
+      0%, 100% { transform: scaleY(1); opacity: .95; }
+      50% { transform: scaleY(.86); opacity: .72; }
+    }
+
+    .project-body {
+      padding: 24px;
+    }
+
+    .project-type {
+      color: var(--accent);
+      font-size: .75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .project-body h3 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .project-body h4 {
+      font-size: .86rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .10em;
+      color: var(--muted);
+      margin-top: 18px;
+      margin-bottom: 10px;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      margin: 0;
+      font-size: .94rem;
+    }
+
+    .built-with {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      background: var(--surface-soft);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: .74rem;
+      font-weight: 800;
+    }
+
+    .project-link {
+      display: inline-flex;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 900;
+      font-size: .92rem;
+    }
+
+    .more-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .compact-project {
+      display: flex;
+      align-items: flex-start;
       gap: 16px;
-      margin-top: 32px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .compact-number {
+      color: var(--accent);
+      font-weight: 900;
+      min-width: 34px;
+    }
+
+    .compact-project h3 {
+      font-size: 1rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .compact-project p {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 10px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
     .skill-group {
-      border: 1px solid var(--line);
       background: var(--surface);
-      border-radius: 26px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
       padding: 22px;
-      box-shadow: var(--card-shadow);
+      box-shadow: var(--shadow);
     }
 
     .skill-group h3 {
       font-size: 1rem;
-      font-weight: 950;
-      margin-bottom: 14px;
-      letter-spacing: -0.03em;
-    }
-
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .skill-tag {
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 10px;
-      color: var(--muted);
-      font-size: .78rem;
-      font-weight: 800;
-    }
-
-    .project-list { margin-top: 34px; border-top: 1px solid var(--line); }
-
-    .project-row {
-      display: grid;
-      grid-template-columns: 86px 1fr 240px;
-      gap: 24px;
-      align-items: start;
-      padding: 34px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .project-number {
-      color: var(--accent);
-      font-weight: 950;
-      font-size: 1rem;
-    }
-
-    .project-main h3 {
-      font-size: clamp(1.35rem, 3vw, 2.15rem);
-      line-height: 1.05;
-      letter-spacing: -0.06em;
-      font-weight: 950;
-      margin-bottom: 10px;
-    }
-
-    .project-role {
-      display: inline-flex;
-      margin-bottom: 12px;
-      color: var(--accent);
       font-weight: 900;
-      font-size: .82rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
+      margin-bottom: 14px;
     }
 
-    .project-main p { color: var(--muted); max-width: 740px; margin-bottom: 16px; }
-
-    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .project-tag {
-      border: 1px solid var(--line);
-      background: var(--surface);
-      border-radius: 999px;
-      padding: 6px 9px;
-      color: var(--muted);
-      font-weight: 800;
-      font-size: .75rem;
-    }
-
-    .project-meta {
+    .skill-list {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-
-    .project-stat {
-      width: 100%;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      border-radius: 20px;
-      padding: 16px;
-      text-align: right;
-      box-shadow: var(--card-shadow);
-    }
-
-    .project-stat strong { display: block; font-size: 1.25rem; letter-spacing: -0.05em; }
-    .project-stat span { color: var(--muted); font-size: .78rem; font-weight: 750; }
 
     .experience-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 32px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
     .timeline-card {
-      border: 1px solid var(--line);
-      border-radius: 28px;
       background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
       padding: 24px;
-      box-shadow: var(--card-shadow);
-    }
-
-    .timeline-card small { color: var(--accent); font-weight: 950; }
-    .timeline-card h3 { font-size: 1.15rem; font-weight: 950; margin: 8px 0; letter-spacing: -0.03em; }
-    .timeline-card p { color: var(--muted); margin: 0; }
-
-    .contact-shell {
-      margin-top: 30px;
-      border: 1px solid var(--line);
-      border-radius: 32px;
-      background: var(--surface);
-      padding: 32px;
       box-shadow: var(--shadow);
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 24px;
-      align-items: center;
     }
 
-    .contact-shell h3 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: .98;
-      letter-spacing: -0.07em;
-      font-weight: 950;
-      margin-bottom: 14px;
-    }
-
-    .contact-shell p { color: var(--muted); margin-bottom: 0; }
-
-    .contact-links { display: grid; gap: 10px; }
-    .contact-links a {
-      text-decoration: none;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 12px 14px;
-      background: var(--surface-2);
-      color: var(--text);
+    .timeline-card small {
+      color: var(--accent);
       font-weight: 900;
-      text-align: center;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.08rem;
+      font-weight: 900;
+      margin: 8px 0;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: .94rem;
+    }
+
+    .contact-form-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .contact-title {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: .95;
+      letter-spacing: -0.07em;
+      font-weight: 900;
+      margin-bottom: 34px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .input-shell {
+      position: relative;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      border-radius: 14px;
+      padding: 18px 54px 18px 18px;
+      box-shadow: var(--shadow);
+      outline: none;
+      font: inherit;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+
+    .contact-form textarea {
+      min-height: 230px;
+      resize: vertical;
+      padding-right: 66px;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+      box-shadow: 0 18px 55px rgba(14,165,233,.16);
+      transform: translateY(-2px);
+    }
+
+    .counter {
+      position: absolute;
+      right: 16px;
+      bottom: 14px;
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 700;
+      pointer-events: none;
+    }
+
+    .verify-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: fit-content;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow);
+      color: var(--ink);
+      margin-top: 8px;
+    }
+
+    .verify-box input {
+      width: 28px;
+      height: 28px;
+      accent-color: var(--accent);
+      box-shadow: none;
+      padding: 0;
+      border-radius: 6px;
+    }
+
+    .verify-text {
+      font-weight: 700;
+    }
+
+    .verify-note {
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+
+    .send-btn {
+      width: fit-content;
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 10px;
+      padding: 14px 22px;
+      background: var(--accent);
+      color: #03111f;
+      font-weight: 900;
+      font-size: 1rem;
+      box-shadow: 0 15px 35px rgba(14,165,233,.25);
+      transition: transform .2s ease, filter .2s ease;
+    }
+
+    .send-btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.05);
+    }
+
+    .contact-small-links {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    .contact-small-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 900;
     }
 
     footer {
-      padding: 38px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+      padding: 28px 0;
+      background: #050914;
+      color: rgba(255,255,255,.68);
       text-align: center;
       font-size: .9rem;
     }
 
-    @media (max-width: 980px) {
-      .snapshot-grid { grid-template-columns: repeat(3, 1fr); }
-      .about-shell, .skills-shell, .experience-grid, .contact-shell { grid-template-columns: 1fr; }
-      .project-row { grid-template-columns: 1fr; gap: 12px; }
-      .project-meta { align-items: stretch; }
-      .project-stat { text-align: left; }
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 50;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #03111f;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 900;
+      box-shadow: var(--shadow);
     }
 
-    @media (max-width: 620px) {
-      .navbar-custom { min-height: auto; padding: 14px 0; }
-      .snapshot-grid, .proof-grid { grid-template-columns: 1fr; }
-      .hero { padding-top: 54px; }
-      section { padding: 62px 0; }
-      .about-card, .contact-shell { padding: 24px; border-radius: 26px; }
-      .btn-modern { width: 100%; }
+    @keyframes heroZoom {
+      from { transform: scale(1.04); }
+      to { transform: scale(1.11); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @keyframes scrollDot {
+      0%, 100% { transform: translateY(0); opacity: .9; }
+      50% { transform: translateY(12px); opacity: .25; }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        gap: 14px;
+      }
+
+      .about-grid,
+      .featured-grid,
+      .more-projects-grid,
+      .skills-grid,
+      .experience-grid,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        min-height: auto;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 100px;
+      }
+
+      .hero-actions .btn-portfolio {
+        width: 100%;
+      }
+
+      .service-grid,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compact-project {
+        flex-direction: column;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-title {
+        font-size: 2.7rem;
+      }
+
+      .contact-form textarea {
+        min-height: 200px;
+      }
+
+      .verify-box {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .visual-content {
+        align-items: flex-end;
+      }
+
+      .mini-bars {
+        min-width: 90px;
+      }
+
+      .visual-stat {
+        min-width: 112px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <nav class="navbar-wrap">
-    <div class="container-narrow navbar-custom d-flex align-items-center justify-content-between gap-3 flex-wrap">
-      <a class="brand-mark" href="#home" aria-label="Dharmik Nakrani home"><span class="brand-dot"></span> Dharmik Nakrani</a>
-      <div class="d-flex align-items-center gap-3 flex-wrap justify-content-end">
-        <a class="nav-link-custom" href="#projects">Projects</a>
-        <a class="nav-link-custom" href="#about">About</a>
-        <a class="nav-link-custom" href="#skills">Skills</a>
-        <a class="nav-link-custom" href="#experience">Experience</a>
-        <a class="nav-link-custom" href="#contact">Contact</a>
-        <a class="nav-link-custom" href="resume.pdf" target="_blank">Resume</a>
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode">☾</button>
+  <nav class="site-nav">
+    <div class="page-container nav-inner">
+      <a class="brand" href="#home">Dharmik<span>.dev</span></a>
+
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#what-i-do">What I Do</a>
+        <a href="#featured">Featured</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </div>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode">☾</button>
     </div>
   </nav>
 
   <header class="hero" id="home">
-    <div class="container-narrow">
-      <div class="eyebrow"><span></span> Open to Data, Business Analytics & AI Analyst Roles</div>
-      <h1 class="hero-title">Data & AI<br><span class="gradient-text">Analytics.</span></h1>
-      <p class="hero-copy">
-        I build SQL, Python, Tableau, Streamlit, and Gemini AI projects that turn customer, revenue, operations, and KPI data into decision-ready insights.
-      </p>
-      <div class="d-flex gap-2 flex-wrap">
-        <a class="btn-modern btn-primary-modern" href="#projects">View Projects</a>
-        <a class="btn-modern btn-secondary-modern" href="resume.pdf" target="_blank" download>Download Resume</a>
-        <a class="btn-modern btn-secondary-modern" href="https://github.com/dharmiknakrani26" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn-modern btn-secondary-modern" href="https://www.linkedin.com/in/dharmik-nakrani-a75618234/" target="_blank" rel="noreferrer">LinkedIn</a>
-      </div>
+    <div class="page-container">
+      <div class="hero-content">
+        <div class="typing-line"><span id="typingText"></span><span class="cursor"></span></div>
+        <h1>Dharmik Nakrani</h1>
+        <p>
+          Data & AI analytics professional building SQL, Python, Tableau, Streamlit, and Gemini AI projects that turn business data into decision-ready insights.
+        </p>
 
-      <div class="role-pills" aria-label="Target roles">
-        <span class="role-pill">Data Analyst</span>
-        <span class="role-pill">Business Data Analyst</span>
-        <span class="role-pill">Business Analyst</span>
-        <span class="role-pill">AI Business Analyst</span>
-        <span class="role-pill">Generative AI Analyst</span>
-      </div>
+        <div class="hero-socials">
+          <a class="social-link" href="https://github.com/dharmiknakrani26" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a class="social-link" href="https://www.linkedin.com/in/dharmik-nakrani-a75618234/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
 
-      <div class="snapshot-grid" aria-label="Portfolio snapshot">
-        <div class="snapshot-card"><strong>8+</strong><span>Analytics & AI projects</span></div>
-        <div class="snapshot-card"><strong>4</strong><span>Role-focused project tracks</span></div>
-        <div class="snapshot-card"><strong>7,032</strong><span>Customer records analyzed</span></div>
-        <div class="snapshot-card"><strong>$1.67M</strong><span>Revenue risk identified</span></div>
-        <div class="snapshot-card"><strong>$2.30M</strong><span>Sales performance analyzed</span></div>
-        <div class="snapshot-card"><strong>SQL + AI</strong><span>Python, Tableau, Gemini stack</span></div>
+        <div class="hero-actions">
+          <a class="btn-portfolio btn-primary-portfolio" href="#contact">Work With Me</a>
+          <a class="btn-portfolio btn-outline-portfolio" href="#featured">Browse Projects</a>
+        </div>
       </div>
     </div>
+    <a class="scroll-mouse" href="#about" aria-label="Scroll to About"></a>
   </header>
 
   <main>
-    <section id="projects">
-      <div class="container-narrow">
-        <div class="section-kicker">Selected Work</div>
-        <h2 class="section-title">Projects built for real business questions.</h2>
-        <p class="section-lead">Eight GitHub projects covering data analytics, business analytics, AI workflows, SQL reporting, operations analytics, content analytics, and sports performance analysis.</p>
-
-        <div class="project-list">
-          <article class="project-row">
-            <div class="project-number">01</div>
-            <div class="project-main">
-              <span class="project-role">Data Analyst Project</span>
-              <h3>Customer Churn Analytics, Revenue Risk & Retention Optimization</h3>
-              <p>Analyzed telecom customer churn to identify risk segments, revenue exposure, and targeted retention opportunities using Python, SQL Server, Tableau, and churn probability scoring.</p>
-              <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Pandas</span><span class="project-tag">SQL Server</span><span class="project-tag">Tableau</span><span class="project-tag">Scikit-learn</span></div>
-            </div>
-            <div class="project-meta">
-              <div class="project-stat"><strong>26.58%</strong><span>Churn rate identified</span></div>
-              <a class="btn-modern btn-secondary-modern" href="https://github.com/dharmiknakrani26/customer-churn-prediction-retention-analysis" target="_blank" rel="noreferrer">View Code</a>
-            </div>
-          </article>
-
-          <article class="project-row">
-            <div class="project-number">02</div>
-            <div class="project-main">
-              <span class="project-role">Business Data Analyst / Business Analyst Project</span>
-              <h3>AI-Powered Executive KPI Dashboard</h3>
-              <p>Built executive dashboards for sales, profit, margin, discount impact, regional performance, and business risk, then validated AI-generated recommendations against SQL and Tableau outputs.</p>
-              <div class="project-tags"><span class="project-tag">SQL Server</span><span class="project-tag">Tableau</span><span class="project-tag">Excel</span><span class="project-tag">KPI Reporting</span><span class="project-tag">Generative AI</span></div>
-            </div>
-            <div class="project-meta">
-              <div class="project-stat"><strong>$2.30M</strong><span>Sales performance analyzed</span></div>
-              <a class="btn-modern btn-secondary-modern" href="https://github.com/dharmiknakrani26/AI-Executive-KPI-Dashboard" target="_blank" rel="noreferrer">View Code</a>
-            </div>
-          </article>
-
-          <article class="project-row">
-            <div class="project-number">03</div>
-            <div class="project-main">
-              <span class="project-role">AI Business Analyst Project</span>
-              <h3>Telecom Customer Retention Intelligence Pipeline</h3>
-              <p>Created an AI business analysis pipeline that cleans telecom data, engineers churn and revenue-risk features, trains a predictive model, and loads decision-ready outputs into SQL Server reporting views.</p>
-              <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">SQL Views</span><span class="project-tag">Scikit-learn</span><span class="project-tag">Retention Strategy</span><span class="project-tag">Data Pipeline</span></div>
-            </div>
-            <div class="project-meta">
-              <div class="project-stat"><strong>SQL Views</strong><span>Decision-ready risk outputs</span></div>
-              <a class="btn-modern btn-secondary-modern" href="https://github.com/dharmiknakrani26/telecom-retention-intelligence-pipeline" target="_blank" rel="noreferrer">View Code</a>
-            </div>
-          </article>
-
-          <article class="project-row">
-            <div class="project-number">04</div>
-            <div class="project-main">
-              <span class="project-role">Generative AI Analyst Project</span>
-              <h3>SkillBridge AI</h3>
-              <p>Developed a Gemini-powered Streamlit app that compares resumes to job descriptions and returns fit scores, skill gaps, resume suggestions, project recommendations, action plans, and PDF reports.</p>
-              <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Streamlit</span><span class="project-tag">Gemini API</span><span class="project-tag">Prompt Engineering</span><span class="project-tag">ReportLab</span></div>
-            </div>
-            <div class="project-meta">
-              <div class="project-stat"><strong>GenAI</strong><span>Resume-to-job workflow</span></div>
-              <a class="btn-modern btn-secondary-modern" href="https://github.com/dharmiknakrani26/Skillbridge-AI" target="_blank" rel="noreferrer">View Code</a>
-            </div>
-          </article>
-
-          <article class="project-row">
-            <div class="project-number">05</div>
-            <div class="project-main">
-              <span class="project-role">Operations Analytics Project</span>
-              <h3>Supply Chain Delivery Delay Analysis</h3>
-              <p>Analyzed delivery delays, shipping risk, operational trends, and profit impact to identify improvement opportunities and support supply chain performance decisions.</p>
-              <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Pandas</span><span class="project-tag">SQL</span><span class="project-tag">Tableau</span><span class="project-tag">Operations</span></div>
-            </div>
-            <div class="project-meta">
-              <div class="project-stat"><strong>Ops</strong><span>Delay and risk analysis</span></div>
-              <a class="btn-modern btn-secondary-modern" href="https://github.com/dharmiknakrani26/supply-chain-delivery-delay-analysis" target="_blank" rel="noreferrer">View Code</a>
-            </div>
-          </article>
-
-          <article class="project-row">
-            <div class="project-number">06</div>
-            <div class="project-main">
-              <span class="project-role">SQL Database & Reporting Project</span>
-              <h3>Student Course Registration SQL Analytics Project</h3>
-              <p>Designed a relational SQL Server database and reporting layer for course capacity, department demand, instructor workload, student credit load, and registration trends.</p>
-              <div class="project-tags"><span class="project-tag">SQL Server</span><span class="project-tag">T-SQL</span><span class="project-tag">SSMS</span><span class="project-tag">Database Design</span><span class="project-tag">Reporting Views</span></div>
-            </div>
-            <div class="project-meta">
-              <div class="project-stat"><strong>SQL</strong><span>Relational reporting design</span></div>
-              <a class="btn-modern btn-secondary-modern" href="https://github.com/dharmiknakrani26/student-course-registration-sql-analytics" target="_blank" rel="noreferrer">View Code</a>
-            </div>
-          </article>
-
-          <article class="project-row">
-            <div class="project-number">07</div>
-            <div class="project-main">
-              <span class="project-role">Content Analytics Project</span>
-              <h3>Netflix Data Analytics Project</h3>
-              <p>Cleaned and analyzed Netflix content data to uncover trends by content type, release year, country, category, genre, and platform growth using Python, SQL Server, Pandas, and Tableau.</p>
-              <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">SQL Server</span><span class="project-tag">Pandas</span><span class="project-tag">Tableau</span><span class="project-tag">EDA</span></div>
-            </div>
-            <div class="project-meta">
-              <div class="project-stat"><strong>EDA</strong><span>Content trend insights</span></div>
-              <a class="btn-modern btn-secondary-modern" href="https://github.com/dharmiknakrani26/Netflix-Data-Analytics-Project" target="_blank" rel="noreferrer">View Code</a>
-            </div>
-          </article>
-
-          <article class="project-row">
-            <div class="project-number">08</div>
-            <div class="project-main">
-              <span class="project-role">Sports & Performance Analytics Project</span>
-              <h3>NBA Player Performance Analytics Dashboard</h3>
-              <p>Built a sports analytics dashboard to compare player impact, efficiency, playmaking quality, and hidden-gem performance for data-driven player evaluation.</p>
-              <div class="project-tags"><span class="project-tag">Tableau</span><span class="project-tag">Sports Analytics</span><span class="project-tag">KPI Dashboard</span><span class="project-tag">Performance Analysis</span><span class="project-tag">Storytelling</span></div>
-            </div>
-            <div class="project-meta">
-              <div class="project-stat"><strong>KPI</strong><span>Player performance comparison</span></div>
-              <a class="btn-modern btn-secondary-modern" href="https://github.com/dharmiknakrani26/aqx-sports-analytics-nba-dashboard" target="_blank" rel="noreferrer">View Code</a>
-            </div>
-          </article>
+    <section class="section" id="about">
+      <div class="page-container">
+        <div class="section-heading">
+          <div class="section-kicker">About Me</div>
+          <h2>Analytics, business questions, and AI workflows.</h2>
+          <p>A short recruiter-ready profile focused on what I can deliver.</p>
         </div>
-      </div>
-    </section>
 
-    <section id="about">
-      <div class="container-narrow">
-        <div class="section-kicker">About</div>
-        <h2 class="section-title">Short version for busy recruiters.</h2>
-        <p class="section-lead">A focused profile in under 30 seconds.</p>
-        <div class="about-shell">
-          <div class="about-card">
-            <h3>I connect data, business questions, and AI workflows.</h3>
+        <div class="about-grid">
+          <div class="panel about-text">
+            <h3>I turn raw data into clear decisions.</h3>
             <p>
-              Data & AI Analytics professional with an M.S. in Computer Science and Python development background. I build SQL, Python, Tableau, Streamlit, and Gemini AI projects that clean data, validate metrics, create dashboards, and turn findings into stakeholder-ready recommendations.
+              Data & AI Analytics professional with an M.S. in Computer Science and a Python development background, building SQL, Python, Tableau, Streamlit, and Gemini AI projects that clean data, validate metrics, uncover risk, create dashboards, and translate customer, revenue, operations, and KPI data into stakeholder-ready recommendations.
             </p>
           </div>
-          <div class="proof-grid">
-            <div class="proof-card"><strong>Data Quality</strong><span>Cleaning, validation, metric checks, SQL/Python cross-checks.</span></div>
-            <div class="proof-card"><strong>Business Impact</strong><span>Revenue risk, retention strategy, KPI reporting, operations insights.</span></div>
-            <div class="proof-card"><strong>AI Workflows</strong><span>Gemini API, Streamlit apps, prompt engineering, PDF automation.</span></div>
-            <div class="proof-card"><strong>Role Fit</strong><span>Data Analyst, Business Analyst, AI Business Analyst, GenAI Analyst.</span></div>
+
+          <div class="metric-grid">
+            <div class="metric-card"><strong>8+</strong><span>GitHub analytics & AI projects</span></div>
+            <div class="metric-card"><strong>7,032</strong><span>Customer records analyzed</span></div>
+            <div class="metric-card"><strong>$1.67M</strong><span>Revenue risk identified</span></div>
+            <div class="metric-card"><strong>$2.30M</strong><span>Sales performance analyzed</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="skills">
-      <div class="container-narrow">
-        <div class="section-kicker">Skills</div>
-        <h2 class="section-title">Tools grouped by hiring signal.</h2>
-        <p class="section-lead">A compact technical stack aligned with analytics, business intelligence, AI automation, and reporting roles.</p>
-        <div class="skills-shell">
+    <section class="section alt" id="what-i-do">
+      <div class="page-container">
+        <div class="section-heading">
+          <h2>What I Do</h2>
+          <p>Clear analytics, BI, AI workflow, and GenAI strengths in one quick view.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">DA</div>
+            <h3>Data Analysis</h3>
+            <p>SQL, Python, Pandas, Tableau, EDA, data cleaning, validation, and KPI reporting.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">BI</div>
+            <h3>Business Analytics</h3>
+            <p>Revenue risk, retention strategy, business recommendations, and executive dashboards.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">AI</div>
+            <h3>AI Business Workflows</h3>
+            <p>Predictive outputs, SQL reporting views, risk scoring, and decision-ready analysis.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">GA</div>
+            <h3>Generative AI Tools</h3>
+            <p>Gemini API, Streamlit apps, prompt engineering, PDF reports, and AI output validation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="featured">
+      <div class="page-container">
+        <div class="section-heading">
+          <div class="section-kicker">Featured Projects</div>
+          <h2>Role-focused portfolio projects.</h2>
+          <p>Four projects aligned to Data Analyst, Business Analyst, AI Business Analyst, and Generative AI Analyst roles.</p>
+        </div>
+
+        <div class="featured-grid">
+          <article class="project-card">
+                        <div class="project-visual">
+              <div class="visual-content">
+                <div class="visual-stat"><strong>26.58%</strong><span>Churn identified</span></div>
+                <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-type">Data Analyst Project</span>
+              <h3>Customer Churn Analytics, Revenue Risk & Retention Optimization</h3>
+              <h4>Description</h4>
+              <p>Analyzed 7,032 telecom customers to identify 26.58% churn, risk segments, and $1.67M annual revenue at risk.</p>
+              <h4>Built with</h4>
+              <div class="built-with">
+                <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL Server</span><span class="tag">Tableau</span><span class="tag">Scikit-learn</span>
+              </div>
+              <a class="project-link" href="https://github.com/dharmiknakrani26/customer-churn-prediction-retention-analysis" target="_blank" rel="noreferrer">View project →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+                        <div class="project-visual">
+              <div class="visual-content">
+                <div class="visual-stat"><strong>$2.30M</strong><span>Sales analyzed</span></div>
+                <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-type">Business Analyst Project</span>
+              <h3>AI-Powered Executive KPI Dashboard</h3>
+              <h4>Description</h4>
+              <p>Built dashboards for $2.30M sales, $286.4K profit, 12.47% margin, orders, customers, regional performance, and AI-assisted business recommendations.</p>
+              <h4>Built with</h4>
+              <div class="built-with">
+                <span class="tag">SQL Server</span><span class="tag">Tableau</span><span class="tag">Excel</span><span class="tag">KPI Reporting</span><span class="tag">Generative AI</span>
+              </div>
+              <a class="project-link" href="https://github.com/dharmiknakrani26/AI-Executive-KPI-Dashboard" target="_blank" rel="noreferrer">View project →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+                        <div class="project-visual">
+              <div class="visual-content">
+                <div class="visual-stat"><strong>SQL Views</strong><span>Risk outputs</span></div>
+                <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-type">AI Business Analyst Project</span>
+              <h3>Telecom Customer Retention Intelligence Pipeline</h3>
+              <h4>Description</h4>
+              <p>Built an AI business analysis pipeline that cleans telecom data, engineers churn and revenue-risk features, and loads predictions into SQL reporting views.</p>
+              <h4>Built with</h4>
+              <div class="built-with">
+                <span class="tag">Python</span><span class="tag">SQL Server</span><span class="tag">SQL Views</span><span class="tag">Scikit-learn</span><span class="tag">Retention Strategy</span>
+              </div>
+              <a class="project-link" href="https://github.com/dharmiknakrani26/telecom-retention-intelligence-pipeline" target="_blank" rel="noreferrer">View project →</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+                        <div class="project-visual">
+              <div class="visual-content">
+                <div class="visual-stat"><strong>Gemini AI</strong><span>Fit-score workflow</span></div>
+                <div class="ai-chip">GenAI App</div>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-type">Generative AI Analyst Project</span>
+              <h3>SkillBridge AI</h3>
+              <h4>Description</h4>
+              <p>Developed a Gemini-powered Streamlit app that compares resumes to job descriptions and generates fit scores, skill gaps, 7-day plans, and PDF reports.</p>
+              <h4>Built with</h4>
+              <div class="built-with">
+                <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Gemini API</span><span class="tag">Prompt Engineering</span><span class="tag">ReportLab</span>
+              </div>
+              <a class="project-link" href="https://github.com/dharmiknakrani26/Skillbridge-AI" target="_blank" rel="noreferrer">View project →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="projects">
+      <div class="page-container">
+        <div class="section-heading">
+          <div class="section-kicker">More Projects</div>
+          <h2>Additional GitHub work.</h2>
+          <p>More projects showing operations analytics, SQL reporting, content analytics, and performance dashboarding.</p>
+        </div>
+
+        <div class="more-projects-grid">
+          <article class="compact-project">
+            <div class="compact-number">05</div>
+            <div>
+              <h3>Supply Chain Delivery Delay Analysis</h3>
+              <p>Operations analytics project identifying delivery delays, shipping risk, profit impact, and improvement opportunities.</p>
+              <div class="built-with"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Tableau</span><span class="tag">Operations</span></div>
+              <a class="project-link" href="https://github.com/dharmiknakrani26/supply-chain-delivery-delay-analysis" target="_blank" rel="noreferrer">View project →</a>
+            </div>
+          </article>
+
+          <article class="compact-project">
+            <div class="compact-number">06</div>
+            <div>
+              <h3>Student Course Registration SQL Analytics</h3>
+              <p>Relational SQL Server database and reporting project for registration trends, course capacity, and department demand.</p>
+              <div class="built-with"><span class="tag">SQL Server</span><span class="tag">T-SQL</span><span class="tag">SSMS</span><span class="tag">Reporting Views</span></div>
+              <a class="project-link" href="https://github.com/dharmiknakrani26/student-course-registration-sql-analytics" target="_blank" rel="noreferrer">View project →</a>
+            </div>
+          </article>
+
+          <article class="compact-project">
+            <div class="compact-number">07</div>
+            <div>
+              <h3>Netflix Data Analytics Project</h3>
+              <p>Content analytics project uncovering trends by content type, release year, country, category, genre, and platform growth.</p>
+              <div class="built-with"><span class="tag">Python</span><span class="tag">SQL Server</span><span class="tag">Pandas</span><span class="tag">Tableau</span></div>
+              <a class="project-link" href="https://github.com/dharmiknakrani26/Netflix-Data-Analytics-Project" target="_blank" rel="noreferrer">View project →</a>
+            </div>
+          </article>
+
+          <article class="compact-project">
+            <div class="compact-number">08</div>
+            <div>
+              <h3>NBA Player Performance Analytics Dashboard</h3>
+              <p>Sports analytics dashboard comparing player impact, efficiency, playmaking quality, and hidden-gem performance.</p>
+              <div class="built-with"><span class="tag">Tableau</span><span class="tag">Sports Analytics</span><span class="tag">KPI Dashboard</span></div>
+              <a class="project-link" href="https://github.com/dharmiknakrani26/aqx-sports-analytics-nba-dashboard" target="_blank" rel="noreferrer">View project →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="page-container">
+        <div class="section-heading">
+          <div class="section-kicker">Skills</div>
+          <h2>Tools and methods.</h2>
+          <p>Grouped by the hiring signals in my resume and portfolio.</p>
+        </div>
+
+        <div class="skills-grid">
           <div class="skill-group">
             <h3>Analytics & BI</h3>
-            <div class="skill-tags"><span class="skill-tag">SQL Server</span><span class="skill-tag">MySQL</span><span class="skill-tag">Tableau</span><span class="skill-tag">Excel</span><span class="skill-tag">Power BI</span><span class="skill-tag">KPI Dashboards</span></div>
+            <div class="skill-list"><span class="tag">SQL Server</span><span class="tag">MySQL</span><span class="tag">Tableau</span><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">KPI Dashboards</span></div>
           </div>
           <div class="skill-group">
             <h3>Python & ML</h3>
-            <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">EDA</span><span class="skill-tag">Feature Engineering</span></div>
+            <div class="skill-list"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">EDA</span><span class="tag">Feature Engineering</span></div>
           </div>
           <div class="skill-group">
             <h3>AI & Automation</h3>
-            <div class="skill-tags"><span class="skill-tag">Gemini API</span><span class="skill-tag">Streamlit</span><span class="skill-tag">Prompt Engineering</span><span class="skill-tag">ReportLab</span><span class="skill-tag">AI Output Validation</span></div>
+            <div class="skill-list"><span class="tag">Gemini API</span><span class="tag">Streamlit</span><span class="tag">Prompt Engineering</span><span class="tag">ReportLab</span><span class="tag">AI Output Validation</span></div>
           </div>
           <div class="skill-group">
             <h3>Business Analysis</h3>
-            <div class="skill-tags"><span class="skill-tag">Requirements Analysis</span><span class="skill-tag">Revenue Risk</span><span class="skill-tag">Retention Strategy</span><span class="skill-tag">Process Improvement</span><span class="skill-tag">Stakeholder Reporting</span></div>
+            <div class="skill-list"><span class="tag">Requirements Analysis</span><span class="tag">Revenue Risk</span><span class="tag">Retention Strategy</span><span class="tag">Process Improvement</span><span class="tag">Stakeholder Reporting</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="experience">
-      <div class="container-narrow">
-        <div class="section-kicker">Experience & Education</div>
-        <h2 class="section-title">Technical foundation with analytics execution.</h2>
+    <section class="section alt" id="experience">
+      <div class="page-container">
+        <div class="section-heading">
+          <div class="section-kicker">Experience & Education</div>
+          <h2>Technical foundation with analytics execution.</h2>
+          <p>Professional experience and education aligned with data, analytics, and AI roles.</p>
+        </div>
+
         <div class="experience-grid">
           <div class="timeline-card">
             <small>Feb 2026 - Present</small>
             <h3>Data Analytics Trainee | Springboard</h3>
-            <p>Built a 4-project Data & AI analytics portfolio using SQL queries/views, Python feature-engineering workflows, Tableau dashboards, KPI reporting, QA checks, and validated recommendation summaries.</p>
+            <p>Built a 4-project Data & AI analytics portfolio using SQL queries/views, Python feature-engineering workflows, Tableau dashboards, KPI reporting, QA checks, and validated recommendations.</p>
           </div>
           <div class="timeline-card">
             <small>June 2022</small>
             <h3>Python Developer | Ravi Info Com</h3>
-            <p>Built and tested Python back-end components for REST API and data-handling workflows, while collaborating on requirements, troubleshooting, and implementation documentation.</p>
+            <p>Built and tested Python back-end components for REST API and data-handling workflows while supporting requirements, troubleshooting, and documentation.</p>
           </div>
           <div class="timeline-card">
             <small>Graduated 2025</small>
@@ -754,46 +1272,145 @@
       </div>
     </section>
 
-    <section id="contact">
-      <div class="container-narrow">
-        <div class="section-kicker">Contact</div>
-        <div class="contact-shell">
-          <div>
-            <h3>Let’s talk data, dashboards, and AI workflows.</h3>
-            <p>Open to Data Analyst, Business Data Analyst, Business Analyst, AI Business Analyst, Generative AI Analyst, Reporting Analyst, and BI Analyst roles.</p>
-          </div>
-          <div class="contact-links">
-            <a href="mailto:dharmiknakrani0026@gmail.com">dharmiknakrani0026@gmail.com</a>
+    <section class="section" id="contact">
+      <div class="page-container">
+        <div class="contact-form-wrap">
+          <h2 class="contact-title">Contact Me</h2>
+
+          <form class="contact-form" id="contactForm">
+            <div class="input-shell">
+              <input type="text" id="subjectInput" maxlength="100" placeholder="Subject" required>
+              <span class="counter"><span id="subjectCount">0</span>/100</span>
+            </div>
+
+            <div class="form-row">
+              <div class="input-shell">
+                <input type="email" id="emailInput" maxlength="50" placeholder="Your email address" required>
+                <span class="counter"><span id="emailCount">0</span>/50</span>
+              </div>
+              <div class="input-shell">
+                <input type="text" id="nameInput" maxlength="50" placeholder="Your name" required>
+                <span class="counter"><span id="nameCount">0</span>/50</span>
+              </div>
+            </div>
+
+            <div class="input-shell">
+              <textarea id="messageInput" maxlength="500" placeholder="Enter message" required></textarea>
+              <span class="counter"><span id="messageCount">0</span>/500</span>
+            </div>
+
+            <label class="verify-box">
+              <input type="checkbox" id="verifyCheck" required>
+              <span class="verify-text">Verify you are human</span>
+              <span class="verify-note">Required</span>
+            </label>
+
+            <button class="send-btn" type="submit"><i class="bi bi-send-fill"></i> Send message</button>
+          </form>
+
+          <div class="contact-small-links">
+            <span>Or connect directly:</span>
+            <a href="mailto:dharmiknakrani0026@gmail.com">Email</a>
             <a href="https://www.linkedin.com/in/dharmik-nakrani-a75618234/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="https://github.com/dharmiknakrani26" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="resume.pdf" target="_blank" download>Download Resume</a>
+            <a href="resume.pdf" target="_blank" download>Resume</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <a class="back-to-top" href="#home" aria-label="Back to top">⌃</a>
+
   <footer>
-    <div class="container-narrow">© 2026 Dharmik Nakrani | Data & AI Analytics Portfolio</div>
+    <div class="page-container">Designed & built for Dharmik Nakrani © 2026 | Data & AI Analytics Portfolio</div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const root = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('portfolio-theme');
+    const toggle = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("portfolio-theme");
 
     if (savedTheme) {
-      root.setAttribute('data-theme', savedTheme);
-      toggle.textContent = savedTheme === 'dark' ? '☾' : '☀';
+      root.setAttribute("data-theme", savedTheme);
+      toggle.textContent = savedTheme === "dark" ? "☾" : "☀";
     }
 
-    toggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('portfolio-theme', next);
-      toggle.textContent = next === 'dark' ? '☾' : '☀';
+    toggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("portfolio-theme", next);
+      toggle.textContent = next === "dark" ? "☾" : "☀";
+    });
+
+    const typingText = document.getElementById("typingText");
+    const phrases = ["SQL & PYTHON", "TABLEAU & KPI", "GEMINI AI", "DATA ANALYTICS"];
+    let phraseIndex = 0;
+    let letterIndex = 0;
+    let deleting = false;
+
+    function typeLoop() {
+      const phrase = phrases[phraseIndex];
+      if (!deleting) {
+        typingText.textContent = phrase.slice(0, letterIndex + 1);
+        letterIndex++;
+        if (letterIndex === phrase.length) {
+          deleting = true;
+          setTimeout(typeLoop, 900);
+          return;
+        }
+      } else {
+        typingText.textContent = phrase.slice(0, letterIndex - 1);
+        letterIndex--;
+        if (letterIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+      }
+      setTimeout(typeLoop, deleting ? 45 : 85);
+    }
+
+    typeLoop();
+
+    const countPairs = [
+      ["subjectInput", "subjectCount"],
+      ["emailInput", "emailCount"],
+      ["nameInput", "nameCount"],
+      ["messageInput", "messageCount"]
+    ];
+
+    countPairs.forEach(([inputId, countId]) => {
+      const input = document.getElementById(inputId);
+      const count = document.getElementById(countId);
+      if (input && count) {
+        input.addEventListener("input", () => {
+          count.textContent = input.value.length;
+        });
+      }
+    });
+
+    const contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const verified = document.getElementById("verifyCheck").checked;
+      if (!verified) {
+        alert("Please verify you are human before sending.");
+        return;
+      }
+
+      const name = document.getElementById("nameInput").value.trim();
+      const email = document.getElementById("emailInput").value.trim();
+      const subject = document.getElementById("subjectInput").value.trim();
+      const message = document.getElementById("messageInput").value.trim();
+
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      );
+
+      window.location.href = `mailto:dharmiknakrani0026@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
     });
   </script>
 </body>
