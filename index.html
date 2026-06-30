@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dharmik Nakrani | Data & AI Analytics Portfolio</title>
-  <meta name="description" content="Dharmik Nakrani portfolio for Data Analyst, Business Analyst, AI Business Analyst, and Generative AI Analyst roles using SQL, Python, Tableau, Streamlit, Gemini AI, and KPI reporting." />
+  <meta name="description" content="Dharmik Nakrani portfolio for Data Analyst, Business Analyst, AI Business Analyst, and Generative AI Analyst roles using SQL, Python, Tableau, Streamlit, Gemini AI, KPI reporting, and RevenueLens AI business intelligence dashboards." />
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://images.unsplash.com" />
@@ -445,6 +445,19 @@
     .project-card:hover {
       transform: translateY(-6px);
       border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
+    }
+
+    .project-card.featured-main {
+      grid-column: 1 / -1;
+    }
+
+    .project-card.featured-main .project-visual,
+    .project-card.featured-main .visual-content {
+      min-height: 180px;
+    }
+
+    .project-card.featured-main .project-body {
+      padding: 28px;
     }
 
     .project-visual {
@@ -1078,10 +1091,34 @@
         <div class="section-heading">
           <div class="section-kicker">Featured Projects</div>
           <h2>Role-focused portfolio projects.</h2>
-          <p>Four projects aligned to Data Analyst, Business Analyst, AI Business Analyst, and Generative AI Analyst roles.</p>
+          <p>Featured work aligned to Data Analyst, Business Analyst, AI Business Analyst, Generative AI Analyst, and BI dashboard roles.</p>
         </div>
 
         <div class="featured-grid">
+          <article class="project-card featured-main">
+            <div class="project-visual">
+              <div class="visual-content">
+                <div class="visual-stat"><strong>8 Modules</strong><span>BI analytics suite</span></div>
+                <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="ai-chip">Live Streamlit App</div>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-type">Featured BI / Streamlit Project</span>
+              <h3>RevenueLens AI — Business Intelligence Dashboard</h3>
+              <h4>Description</h4>
+              <p>Built an AI-powered business intelligence dashboard for sales analytics, customer insights, inventory tracking, marketing ROI, forecasting, AI assistant support, and executive reporting.</p>
+              <h4>Built with</h4>
+              <div class="built-with">
+                <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">Plotly</span><span class="tag">SQLite</span><span class="tag">Scikit-learn</span><span class="tag">HTML/CSS</span>
+              </div>
+              <div class="project-actions">
+                <a class="project-link" href="https://revenuelens-ai.streamlit.app/" target="_blank" rel="noreferrer">Live app →</a>
+                <a class="project-link" href="https://github.com/dharmiknakrani26/RevenueLens-AI" target="_blank" rel="noreferrer">View project →</a>
+              </div>
+            </div>
+          </article>
+
           <article class="project-card">
                         <div class="project-visual">
               <div class="visual-content">
@@ -1178,7 +1215,7 @@
 
         <div class="more-projects-grid">
           <article class="compact-project">
-            <div class="compact-number">05</div>
+            <div class="compact-number">09</div>
             <div>
               <h3>Supply Chain Delivery Delay Analysis</h3>
               <p>Operations analytics project identifying delivery delays, shipping risk, profit impact, and improvement opportunities.</p>
